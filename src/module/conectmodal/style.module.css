@@ -1,13 +1,21 @@
 .conectModal {
-    width: 250px;
+    width: 310px;
     margin: 0 auto;
+    height: 300px;
 }
 .buttonContainer {
     display: flex;
 }
 
-@media (min-width: 350px) {
+@media (min-width: 500px) {
     .conectModal {
-        width: 350px;
+        width: 330px;
+        box-shadow: 0 0 10px var(--background-2);
+        padding: 20px 20px;
+    }
+}
+@media (max-width: 330px) {
+    .conectModal {
+        width: 230px;
     }
 }
