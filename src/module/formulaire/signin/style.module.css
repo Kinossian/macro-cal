@@ -1,0 +1,9 @@
+.formContainer:before {
+    content: "";
+    border-top: 1px solid var(--fx-1);
+    box-shadow: 0 0 10px var(--fx-1);
+    width: 17%;
+    position: relative;
+    top: -35px;
+    transform: translateX(394%);
+}

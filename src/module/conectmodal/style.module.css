@@ -1,0 +1,13 @@
+.conectModal {
+    width: 250px;
+    margin: 0 auto;
+}
+.buttonContainer {
+    display: flex;
+}
+
+@media (min-width: 350px) {
+    .conectModal {
+        width: 350px;
+    }
+}

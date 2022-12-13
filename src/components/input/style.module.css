@@ -1,0 +1,20 @@
+.input {
+    font-size: 1.5rem;
+    height: 2.5rem;
+    padding: 2px 5px;
+    margin: 1px 0;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    outline-offset: 5px;
+    transition: 0.2s;
+    box-shadow: 0 0 10px #1f1f1f;
+}
+.input:focus {
+    outline: 1px solid var(--fx-1);
+    box-shadow: 0 0 10px var(--fx-1);
+    border-radius: 10px;
+    zoom: 110%;
+    z-index: 10;
+    outline-offset: 1px;
+}
