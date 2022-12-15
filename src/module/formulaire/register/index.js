@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ButtonStyle from "../../../components/button/buttonstyle";
-import InputStyle from "../../../components/input/inputstyle";
+import ButtonStyle from "../../../components/button";
+import InputStyle from "../../../components/input";
 import { doCreateUserWithEmailAndPassword } from "../../../utils/firebase/methode";
 import style from "./style.module.css"
 
@@ -22,18 +22,21 @@ const Register = () => {
         <>
             <form className={style.formContainer} onSubmit={handleSubmit}>
                 <InputStyle
+                    labelName="Email"
                     type="text"
-                    placeholder="Email"
+                    placeholder="...."
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <InputStyle
+                    labelName="Password"
                     type="password"
-                    placeholder="Password"
+                    placeholder="...."
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <InputStyle
+                    labelName="Pseudo"
                     type="text"
-                    placeholder="Pseudo"
+                    placeholder="...."
                     onChange={(e) => setPseudo(e.target.value)}
                 />
                 <ButtonStyle

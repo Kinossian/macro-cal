@@ -9,6 +9,7 @@
     padding: 5px 0;
     margin-bottom: 15px;
     width: 100%;
+    height: 70px;
     box-shadow: 0 0 10px #f1f1fa5e;
 }
 .header > a {
@@ -18,11 +19,14 @@
 }
 .nav {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     padding: 0 10px;
     transition: 0.2s;
     transition-delay: 0.2s;
+    width: 90%;
+    height: 90%;
+    z-index: 8;
 }
 .nav a {
     padding: 1px 10px;
@@ -42,7 +46,7 @@
 .burger {
     display: none;
 }
-@media (max-width: 600px) {
+@media (max-width: 9000px) {
     .burger {
         display: block;
         z-index: 10;
@@ -65,20 +69,21 @@
     }
     .nav {
         flex-direction: column;
-        width: 70%;
+        width: 100%;
         position: absolute;
         top: -100%;
         background-color: var(--background-2);
         padding: 100px 10px 10px;
         box-shadow: 0 0 10px #2e2e2e;
-        border-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
     }
     .navActive {
-        top: 0;
+        top: 72px;
     }
     .nav a {
         margin: 10px 0;
-        width: 90%;
+        width: 50%;
         text-align: center;
     }
     .nav a:hover {

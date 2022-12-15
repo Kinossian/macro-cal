@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import AlimentContainer from "../../module/alimentcontainer";
+import NavBar from "../../module/navbar";
+import AjouterAlimentFormulaire from "../../module/formulaire/ajouteraliment";
+import style from "./style.module.css"
 
-const Ajouter = () => {
+
+const AjouterAlimentPage = ({ user, aliments }) => {
+    const [isTrue, setIsTrue] = useState(true);
+
     return (
-        <div className="page1">
-            <h1>Ajouter</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-                suscipit beatae tenetur animi, totam nam assumenda, consequatur
-                dolorem non quasi ad labore sequi! Modi veniam, magnam delectus
-                hic saepe adipisci repudiandae quidem reiciendis maiores quasi
-                eos aspernatur veritatis placeat ullam ducimus suscipit
-                explicabo, ipsa consequatur ad nesciunt molestias soluta earum.
-                Quam cupiditate similique deserunt consectetur expedita error
-                blanditiis tempore quos temporibus maxime minus quae, sunt, unde
-                odio, ratione earum laudantium impedit modi labore rerum saepe
-                iure maiores.
-            </p>
-        </div>
+        <>
+            <NavBar user={user} />
+            {user &&
+                <div className={style.ajouterPage}>
+                    <div className={style.ajouterHeader}>
+                        <h2>Ajouter des aliments à votre base de donnée</h2>
+                    </div>
+
+                    <AjouterAlimentFormulaire />
+                    {
+                        isTrue &&
+                        <AlimentContainer aliments={aliments} />
+                    }
+                </div>
+            }
+        </>
     );
 };
 
-export default Ajouter;
+export default AjouterAlimentPage;

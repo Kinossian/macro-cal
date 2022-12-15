@@ -1,10 +1,16 @@
 import React from "react";
+import NavBar from "../../module/navbar";
 
-const Repas = () => {
+const Repas = ({ user }) => {
     return (
-        <div>
-            <h1>repa</h1>
-        </div>
+        <>
+            <NavBar user={user} />
+            {user &&
+                <div>
+                    <h1>repa</h1>
+                </div>
+            }
+        </>
     );
 };
 

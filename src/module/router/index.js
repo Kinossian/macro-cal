@@ -1,20 +1,27 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Nav from "../navbar/nav";
-import Home from "../../page/home";
-import Ajouter from '../../page/ajouter';
+import Ajouter from "../../page/ajouter"
 import Repas from '../../page/repas';
+import Home from '../../page/home';
 
-const Router = ({ user }) => {
+
+const Router = ({ user, aliments }) => {
     return (
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Nav user={user} />}>
-                        <Route index element={<Home />} />
-                        <Route path="/ajouter" element={<Ajouter />} />
-                        <Route path="/repas" element={<Repas />} />
-                    </Route>
+                    <Route
+                        path="/"
+                        element={<Home user={user} />} />
+                    <Route
+                        path="/ajouter"
+                        element={<Ajouter user={user} aliments={aliments} />} />
+                    <Route
+                        path="/repas"
+                        element={<Repas user={user} />} />
+                    <Route
+                        path="*"
+                        element={<Home />} />
                 </Routes>
             </BrowserRouter>
         </>

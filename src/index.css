@@ -8,6 +8,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     list-style: none;
     text-decoration: none;
 }
@@ -30,7 +31,7 @@ body {
 #root {
     height: 100vh;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    /* grid-template-rows: auto 1fr 2fr auto; */
 }
 #root:fullscreen {
     overflow: scroll !important;
@@ -46,9 +47,13 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 10px;
 }
-
-form :last-child {
-    margin-top: 20px;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
+/* form :last-child {
+    margin-top: 20px;
+} */
