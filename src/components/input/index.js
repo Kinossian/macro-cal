@@ -1,16 +1,16 @@
 import React from 'react';
-import style from "./style.module.css"
+import style from "./style.module.css";
 
-const InputStyle = ({ type, placeholder, onChange, labelName, value }) => {
+const InputStyle = ({ type, placeholder, onChange, label, value }) => {
     return (
         <>
             <label
                 className={style.label}
-                htmlFor={labelName}>{labelName}
+                htmlFor={label}>{label}
             </label>
             <input
                 autoComplete='off'
-                id={labelName}
+                id={label}
                 className={style.input}
                 type={type}
                 placeholder={placeholder}

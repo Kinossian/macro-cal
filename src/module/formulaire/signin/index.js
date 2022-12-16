@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ButtonStyle from "../../../components/button";
 import InputStyle from "../../../components/input";
 import { doSignInWithEmailAndPassword } from "../../../utils/firebase/methode";
-import style from "./style.module.css"
+import style from "./style.module.css";
 
 const SignIn = () => {
     const [email, setEmail] = useState("");
@@ -10,28 +10,28 @@ const SignIn = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        await doSignInWithEmailAndPassword(email, password)
+        await doSignInWithEmailAndPassword(email, password);
     }
 
     return (
         <>
             <form className={style.formContainer} onSubmit={handleSubmit}>
                 <InputStyle
-                    labelName="Email"
+                    label="Email"
                     type="text"
                     placeholder="...."
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <InputStyle
-                    labelName="Password"
+                    label="Password"
                     type="password"
                     placeholder="...."
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <ButtonStyle
-                    name={"Envoyer"}
-                    textcolor={"var(--text-1)"}
-                    backgroundcolor={"var(--background-3)"}
+                    value="Envoyer"
+                    color="var(--text-1)"
+                    background="var(--background-3)"
                 />
             </form>
         </>

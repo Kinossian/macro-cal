@@ -1,12 +1,15 @@
-import React from 'react';
-import CardAliments from '../alimentcard';
+import { useAliments } from '../../utils/hooks/custom';
+import AlimentsCards from '../alimentcard';
 
-const AlimentContainer = ({ aliments }) => {
+
+const AlimentContainer = () => {
+    const alimentsArray = useAliments();
+
     return (
         <div>
             {
-                aliments && aliments.map((aliment) => (
-                    <CardAliments key={aliment.id} aliment={aliment} />
+                alimentsArray && alimentsArray.map((aliment) => (
+                    <AlimentsCards key={aliment.id} aliment={aliment} />
                 ))
             }
         </div>

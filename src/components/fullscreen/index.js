@@ -3,37 +3,34 @@ import ButtonStyle from "../button";
 import style from "./style.module.css";
 
 const Fullscreen = () => {
-    const root = document.querySelector("#root")
-    const [isTrue, setIsTrue] = useState(true)
+    const root = document.querySelector("#root");
+    const [isFullscreen, setIsFullscreen] = useState(true);
+
     function fullscreen() {
-        root.requestFullscreen()
+        root.requestFullscreen();
         if (root.requestFullscreen()) {
-            setIsTrue(!isTrue)
+            setIsFullscreen(!isFullscreen);
         }
     }
     function closeFullscreen() {
-        document.exitFullscreen()
-        setIsTrue(!isTrue)
+        document.exitFullscreen();
+        setIsFullscreen(!isFullscreen);
+    }
+    function openCloseFullscreen() {
+        if (isFullscreen) {
+            fullscreen();
+        } else {
+            closeFullscreen();
+        }
     }
     return (
-        <>
-            <div className={style.fullscreenButton}>
-                {
-                    isTrue ?
-                        <ButtonStyle
-                            textcolor={"var(--background-2)"}
-                            backgroundcolor={"var(--fx-1)"}
-                            name="Fullscreen"
-                            click={fullscreen} />
-                        :
-                        <ButtonStyle
-                            textcolor={"var(--background-2)"}
-                            backgroundcolor={"var(--fx-1)"}
-                            name="Close 
-                        Fullscreen" click={closeFullscreen} />
-                }
-            </div>
-        </>
+        <div className={style.fullscreenButton}>
+            <ButtonStyle
+                color="var(--background-2)"
+                background="var(--fx-1)"
+                value="Fullscreen"
+                onClick={openCloseFullscreen} />
+        </div>
     );
 };
 

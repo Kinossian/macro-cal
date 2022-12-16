@@ -1,8 +1,7 @@
 import React from 'react';
-import style from "./style.module.css"
+import style from "./style.module.css";
 
-const CardAliments = ({ aliment }) => {
-    console.log(aliment);
+const AlimentsCards = ({ aliment }) => {
     return (
         <div className={style.cardAliment}>
             <h3>{aliment.name}</h3>
@@ -10,4 +9,4 @@ const CardAliments = ({ aliment }) => {
     );
 };
 
-export default CardAliments;
+export default AlimentsCards;

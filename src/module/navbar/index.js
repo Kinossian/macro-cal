@@ -6,11 +6,11 @@ import { doSignOut } from "../../utils/firebase/methode";
 import Fullscreen from "../../components/fullscreen";
 import style from "./style.module.css";
 
-const NavBar = ({ user }) => {
+const NavBar = () => {
     const [isTrue, setIsTrue] = useState(false);
 
     function navDisplay() {
-        setIsTrue(!isTrue)
+        setIsTrue(!isTrue);
     }
 
     return (
@@ -43,11 +43,11 @@ const NavBar = ({ user }) => {
                                 </NavLink>
                                 <Fullscreen />
                                 <ButtonStyle
-                                    name={"logout"}
-                                    textcolor={"var(--text-1)"}
-                                    backgroundcolor={"var(--background-1)"}
-                                    fontsize={"0.8rem"}
-                                    click={doSignOut}
+                                    value="logout"
+                                    color="var(--text-1)"
+                                    background="var(--background-1)"
+                                    fontSize="0.8rem"
+                                    onClick={doSignOut}
                                 />
                             </nav>
                             :
@@ -70,11 +70,11 @@ const NavBar = ({ user }) => {
                                 </NavLink>
                                 <Fullscreen />
                                 <ButtonStyle
-                                    name={"logout"}
-                                    textcolor={"var(--text-1)"}
-                                    backgroundcolor={"var(--background-1)"}
-                                    fontsize={"0.8rem"}
-                                    click={doSignOut}
+                                    value="logout"
+                                    color="var(--text-1)"
+                                    background="var(--background-1)"
+                                    fontSize="0.8rem"
+                                    onClick={doSignOut}
                                 />
                             </nav>
                     }

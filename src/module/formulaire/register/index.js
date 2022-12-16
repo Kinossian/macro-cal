@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ButtonStyle from "../../../components/button";
 import InputStyle from "../../../components/input";
 import { doCreateUserWithEmailAndPassword } from "../../../utils/firebase/methode";
-import style from "./style.module.css"
+import style from "./style.module.css";
 
 
 const Register = () => {
@@ -15,34 +15,34 @@ const Register = () => {
 
 
         console.log(email, password, pseudo);
-        await doCreateUserWithEmailAndPassword(email, password, pseudo)
+        await doCreateUserWithEmailAndPassword(email, password, pseudo);
     }
 
     return (
         <>
             <form className={style.formContainer} onSubmit={handleSubmit}>
                 <InputStyle
-                    labelName="Email"
+                    label="Email"
                     type="text"
                     placeholder="...."
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <InputStyle
-                    labelName="Password"
+                    label="Password"
                     type="password"
                     placeholder="...."
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <InputStyle
-                    labelName="Pseudo"
+                    label="Pseudo"
                     type="text"
                     placeholder="...."
                     onChange={(e) => setPseudo(e.target.value)}
                 />
                 <ButtonStyle
-                    name={"Envoyer"}
-                    textcolor={"var(--text-1)"}
-                    backgroundcolor={"var(--background-3)"}
+                    value="Envoyer"
+                    color="var(--text-1)"
+                    background="var(--background-3)"
                 />
             </form>
         </>

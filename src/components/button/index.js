@@ -1,22 +1,20 @@
-import React, { } from "react";
 import style from "./style.module.css";
 
-const ButtonStyle = ({ name, textcolor, backgroundcolor, fontsize, click }) => {
+const ButtonStyle = ({ value, color, background, fontSize, onClick }) => {
 
     return (
-        <>
-            <button
-                onClick={click}
-                style={{
-                    background: backgroundcolor,
-                    color: textcolor,
-                    fontSize: fontsize,
-                }}
-                className={style.buttonStyle}
-            >
-                {name}
-            </button>
-        </>
+
+        <button
+            onClick={onClick}
+            style={{
+                background: background,
+                color: color,
+                fontSize: fontSize,
+            }}
+            className={style.buttonStyle}
+        >
+            {value}
+        </button>
     );
 };
 

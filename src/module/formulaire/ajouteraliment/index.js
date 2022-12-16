@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import InputStyle from '../../../components/input';
 import ButtonStyle from '../../../components/button';
-import style from './style.module.css'
+import style from './style.module.css';
 import { doAddDocAliment } from '../../../utils/firebase/methode';
 
 const AjouterAlimentFormulaire = () => {
-    const [dataProvi, setDataProvi] = useState({})
+    const [dataProvi, setDataProvi] = useState({});
     const [name, setName] = useState("");
     const [kcal, setKcal] = useState("");
     const [glucide, setGlucide] = useState("");
@@ -13,10 +13,8 @@ const AjouterAlimentFormulaire = () => {
     const [proteine, setProteine] = useState("");
     const [isTrue, setIsTrue] = useState(false);
 
-
-
     function confirm(message, data) {
-        const ok = window.confirm(message)
+        const ok = window.confirm(message);
         if (ok) {
             doAddDocAliment(data);
             setName("");
@@ -24,14 +22,14 @@ const AjouterAlimentFormulaire = () => {
             setGlucide("");
             setLipide("");
             setProteine("");
-            setIsTrue(true)
+            setIsTrue(true);
             setTimeout(() => {
-                setIsTrue(false)
-            }, 4000)
-            return true
+                setIsTrue(false);
+            }, 4000);
+            return true;
         } else {
-            setIsTrue(false)
-            return false
+            setIsTrue(false);
+            return false;
         }
     }
     function handleSubmit(e) {
@@ -43,17 +41,17 @@ const AjouterAlimentFormulaire = () => {
             glucide: Number(glucide),
             lipide: Number(lipide),
             proteine: Number(proteine),
-        }
-        setDataProvi(data)
+        };
+        setDataProvi(data);
         const message = `Etes vous sur de vouloir ajouter l'aliment:
          ${data.name}
          ${data.kcal} kcal
          ${data.glucide} glucide
          ${data.lipide} lipide
          ${data.proteine} proteine
-         `
+         `;
 
-        confirm(message, data)
+        confirm(message, data);
     }
 
     return (
@@ -61,7 +59,7 @@ const AjouterAlimentFormulaire = () => {
             <form onSubmit={handleSubmit}>
                 <div className={style.alimentContainer}>
                     <InputStyle
-                        labelName="Aliment"
+                        label="Aliment"
                         type="text"
                         placeholder="...."
                         onChange={(e) => setName(e.target.value)}
@@ -70,7 +68,7 @@ const AjouterAlimentFormulaire = () => {
                 </div>
                 <div className={style.kcalContainer}>
                     <InputStyle
-                        labelName="Kcal"
+                        label="Kcal"
                         type="number"
                         placeholder="..."
                         onChange={(e) => setKcal(e.target.value)}
@@ -79,7 +77,7 @@ const AjouterAlimentFormulaire = () => {
                 </div>
                 <div className={style.glucideContainer}>
                     <InputStyle
-                        labelName="Glucide"
+                        label="Glucide"
                         type="number"
                         placeholder="..."
                         onChange={(e) => setGlucide(e.target.value)}
@@ -88,7 +86,7 @@ const AjouterAlimentFormulaire = () => {
                 </div>
                 <div className={style.lipideContainer}>
                     <InputStyle
-                        labelName="Lipide"
+                        label="Lipide"
                         type="number"
                         placeholder="..."
                         onChange={(e) => setLipide(e.target.value)}
@@ -97,7 +95,7 @@ const AjouterAlimentFormulaire = () => {
                 </div>
                 <div className={style.proteineContainer}>
                     <InputStyle
-                        labelName="Proteine"
+                        label="Proteine"
                         type="number"
                         placeholder="..."
                         onChange={(e) => setProteine(e.target.value)}
@@ -106,9 +104,9 @@ const AjouterAlimentFormulaire = () => {
                 </div>
                 <div className={style.buttonContainer}>
                     <ButtonStyle
-                        name="Envoyer"
-                        backgroundcolor={"var(--background-3)"}
-                        textcolor={"var(--fx-1)"}
+                        value="Envoyer"
+                        background="var(--background-3)"
+                        color="var(--fx-1)"
                     />
                 </div>
             </form>

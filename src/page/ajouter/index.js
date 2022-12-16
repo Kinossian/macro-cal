@@ -1,27 +1,21 @@
-import React, { useState } from "react";
 import AlimentContainer from "../../module/alimentcontainer";
 import NavBar from "../../module/navbar";
 import AjouterAlimentFormulaire from "../../module/formulaire/ajouteraliment";
-import style from "./style.module.css"
+import style from "./style.module.css";
+import { useUser } from "../../utils/hooks/custom";
 
 
-const AjouterAlimentPage = ({ user, aliments }) => {
-    const [isTrue, setIsTrue] = useState(true);
-
+const AjouterAlimentPage = () => {
     return (
         <>
-            <NavBar user={user} />
-            {user &&
+            <NavBar />
+            {useUser() &&
                 <div className={style.ajouterPage}>
                     <div className={style.ajouterHeader}>
                         <h2>Ajouter des aliments à votre base de donnée</h2>
                     </div>
-
                     <AjouterAlimentFormulaire />
-                    {
-                        isTrue &&
-                        <AlimentContainer aliments={aliments} />
-                    }
+                    <AlimentContainer />
                 </div>
             }
         </>

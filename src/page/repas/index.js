@@ -1,11 +1,12 @@
 import React from "react";
 import NavBar from "../../module/navbar";
+import { useUser } from "../../utils/hooks/custom";
 
-const Repas = ({ user }) => {
+const Repas = () => {
     return (
         <>
-            <NavBar user={user} />
-            {user &&
+            <NavBar />
+            {useUser &&
                 <div>
                     <h1>repa</h1>
                 </div>
