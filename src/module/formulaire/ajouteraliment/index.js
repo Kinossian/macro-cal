@@ -4,7 +4,7 @@ import ButtonStyle from '../../../components/button';
 import style from './style.module.css';
 import { doAddDocAliment } from '../../../utils/firebase/methode';
 
-const AjouterAlimentFormulaire = () => {
+const FormulaireAjouterAliment = () => {
     const [dataProvi, setDataProvi] = useState({});
     const [name, setName] = useState("");
     const [kcal, setKcal] = useState("");
@@ -121,4 +121,4 @@ const AjouterAlimentFormulaire = () => {
     );
 };
 
-export default AjouterAlimentFormulaire;
+export default FormulaireAjouterAliment;

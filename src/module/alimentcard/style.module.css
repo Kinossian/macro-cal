@@ -1,2 +1,63 @@
 .cardAliment {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin: 5px;
+    padding: 5px 5px 5px;
+    text-align: center;
+    align-items: center;
+    background-color: var(--background-2);
+    border-radius: 8px;
+    max-width: 340px;
+    min-width: 340px;
+    cursor: pointer;
+    border: 1px solid #00000000;
+    height: 40px;
+    overflow: hidden;
+    transition: 0.3s;
+    user-select: none;
+}
+.linkActive {
+    height: 87px;
+}
+.linkActive h3 {
+    background-color: var(--background-1);
+}
+.cardAliment:hover {
+    box-shadow: 0 0 10px var(--fx-1);
+    border: 1px solid var(--fx-1);
+}
+.cardAliment h3 {
+    transition: 0.3s;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.cardAliment h3 span {
+    font-size: 0.6rem;
+}
+.nameAliment {
+    grid-column: 1 / span 4;
+    padding: 5px 0;
+}
+.macroContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.macroContainer h4 {
+    border-bottom: 1px solid var(--fx-1);
+    font-size: 0.6rem;
+    padding: 5px 0 5px;
+}
+.macroContainer p {
+    border-right: 1px solid var(--fx-1);
+    padding: 5px 0 0;
+}
+.macroContainer:last-child p {
+    border: none;
 }
