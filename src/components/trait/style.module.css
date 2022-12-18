@@ -1,0 +1,9 @@
+.trait {
+    height: 1px;
+    border-radius: 10px;
+    width: 80%;
+    background: var(--background-1);
+    box-shadow: 0 0 5px var(--fx-1);
+    margin: 20px auto;
+    z-index: 3000;
+}

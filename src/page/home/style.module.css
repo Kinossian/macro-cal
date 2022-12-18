@@ -15,6 +15,7 @@
 .youAreConected {
     margin-top: 10px;
     color: var(--fx-1);
+    text-shadow: 0 0 10px var(--fx-1);
 }
 .choix {
     text-align: center;
