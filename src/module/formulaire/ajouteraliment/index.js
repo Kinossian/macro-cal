@@ -17,7 +17,7 @@ const FormulaireAjouterAliment = () => {
 
     const handleOnSelect = useCallback((e) => {
         setCategory(e.currentTarget.value);
-    }, [category]);
+    }, []);
     function confirm(message, data) {
         const ok = window.confirm(message);
         if (ok) {
