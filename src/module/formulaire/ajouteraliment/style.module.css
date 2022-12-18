@@ -1,12 +1,18 @@
 .ajouterAlimentFormContainer {
     width: 60%;
-    margin: 0 auto;
+    margin: 0 auto 40px;
+    position: relative;
 }
+.ajouterHeader {
+    text-align: center;
+    font-size: 0.7rem;
+}
+
 .ajouterAlimentFormContainer form {
     gap: 5px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1.5fr 1fr 1fr;
     align-items: end;
     font-size: 0.7rem;
     text-align: center;
@@ -17,6 +23,19 @@
 .alimentContainer {
     grid-column: 1 / span 4;
     font-size: 0.9rem;
+    display: grid;
+    /* gap: 1px; */
+    grid-template-rows: 1fr 2fr 2fr;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+.alimentContainer label {
+    grid-column: 1 / span 3;
+}
+.alimentContainer input {
+    grid-column: 1 / span 3;
+}
+.alimentContainer select {
+    grid-column: 2;
 }
 .kcalContainer {
 }
@@ -38,9 +57,10 @@
     margin-top: 10px;
     font-size: 0.6rem;
     position: absolute;
-    top: 20px;
+    top: -80px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 3000;
 }
 /* .messageAddAliment > strong {
     color: var(--fx-1);

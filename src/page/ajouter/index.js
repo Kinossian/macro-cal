@@ -11,9 +11,6 @@ const AjouterAlimentPage = () => {
             <NavBar />
             {useUser() &&
                 <div className={style.ajouterPage}>
-                    <div className={style.ajouterHeader}>
-                        <h2>Ajouter des aliments à votre base de donnée</h2>
-                    </div>
                     <FormulaireAjouterAliment />
                     <AlimentContainer />
                 </div>

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import InputStyle from '../../../components/input';
 import ButtonStyle from '../../../components/button';
 import style from './style.module.css';
 import { doAddDocAliment } from '../../../utils/firebase/methode';
+import CategorySelect from '../../../components/categoryselect';
 
 const FormulaireAjouterAliment = () => {
     const [dataProvi, setDataProvi] = useState({});
@@ -11,8 +12,12 @@ const FormulaireAjouterAliment = () => {
     const [glucide, setGlucide] = useState("");
     const [lipide, setLipide] = useState("");
     const [proteine, setProteine] = useState("");
+    const [category, setCategory] = useState("");
     const [isTrue, setIsTrue] = useState(false);
 
+    const handleOnSelect = useCallback((e) => {
+        setCategory(e.currentTarget.value);
+    }, [category]);
     function confirm(message, data) {
         const ok = window.confirm(message);
         if (ok) {
@@ -41,6 +46,7 @@ const FormulaireAjouterAliment = () => {
             glucide: Number(glucide),
             lipide: Number(lipide),
             proteine: Number(proteine),
+            category,
         };
         setDataProvi(data);
         const message = `Etes vous sur de vouloir ajouter l'aliment:
@@ -49,6 +55,7 @@ const FormulaireAjouterAliment = () => {
          ${data.glucide} glucide
          ${data.lipide} lipide
          ${data.proteine} proteine
+         Dans la category: ${data.category}
          `;
 
         confirm(message, data);
@@ -56,6 +63,9 @@ const FormulaireAjouterAliment = () => {
 
     return (
         <div className={style.ajouterAlimentFormContainer}>
+            <div className={style.ajouterHeader}>
+                <h2>Ajouter des aliments à votre base de donnée</h2>
+            </div>
             <form onSubmit={handleSubmit}>
                 <div className={style.alimentContainer}>
                     <InputStyle
@@ -65,6 +75,7 @@ const FormulaireAjouterAliment = () => {
                         onChange={(e) => setName(e.target.value)}
                         value={name}
                     />
+                    <CategorySelect handleOnSelect={handleOnSelect} />
                 </div>
                 <div className={style.kcalContainer}>
                     <InputStyle
@@ -106,17 +117,17 @@ const FormulaireAjouterAliment = () => {
                     <ButtonStyle
                         value="Envoyer"
                         background="var(--background-3)"
-                        color="var(--fx-1)"
+                        color="var(--text-1)"
                     />
                 </div>
-            </form>
+            </form >
             {isTrue &&
                 <p className={style.messageAddAliment}>
                     Aliment
                     <strong> {dataProvi.name} </strong>
                     ajouter à la base de donnée.
                 </p>}
-        </div>
+        </div >
 
     );
 };
