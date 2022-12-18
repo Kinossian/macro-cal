@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useAliments } from '../../utils/hooks/custom';
 import AlimentsCards from '../alimentcard';
 import style from "./style.module.css";
