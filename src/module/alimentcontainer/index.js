@@ -7,7 +7,6 @@ import style from "./style.module.css";
 
 const AlimentContainer = () => {
     const alimentsArray = useAliments();
-    const [categoryIsOpen, setCategoryIsOpen] = useState("");
     const viandeArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "viande";
