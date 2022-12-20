@@ -6,18 +6,30 @@ import { doAddDocAliment } from '../../../utils/firebase/methode';
 import CategorySelect from '../../../components/categoryselect';
 
 const FormulaireAjouterAliment = () => {
-    const [dataProvi, setDataProvi] = useState({});
+    const [dataProvisoirForDisplay, setDataProvisoirForDisplay] = useState({});
     const [name, setName] = useState("");
     const [kcal, setKcal] = useState("");
     const [glucide, setGlucide] = useState("");
     const [lipide, setLipide] = useState("");
     const [proteine, setProteine] = useState("");
     const [category, setCategory] = useState("");
-    const [isTrue, setIsTrue] = useState(false);
+    const [isInputEmpty, setIsInputEmpty] = useState(false);
+    const [isMessageAdd, setIsMessageAdd] = useState(false);
 
     const handleOnSelect = useCallback((e) => {
         setCategory(e.currentTarget.value);
     }, []);
+    function inputIsTrue(name, category, kcal) {
+        if (name === "" || category === "" || kcal === "") {
+            setIsInputEmpty(true);
+            setTimeout(() => {
+                setIsInputEmpty(false);
+            }, 2000);
+            return false;
+        } else {
+            setIsInputEmpty(false);
+        }
+    }
     function confirm(message, data) {
         const ok = window.confirm(message);
         if (ok) {
@@ -27,13 +39,14 @@ const FormulaireAjouterAliment = () => {
             setGlucide("");
             setLipide("");
             setProteine("");
-            setIsTrue(true);
+            setCategory("");
+            setIsMessageAdd(true);
             setTimeout(() => {
-                setIsTrue(false);
+                setIsMessageAdd(false);
             }, 4000);
             return true;
         } else {
-            setIsTrue(false);
+            setIsMessageAdd(false);
             return false;
         }
     }
@@ -48,7 +61,13 @@ const FormulaireAjouterAliment = () => {
             proteine: Number(proteine),
             category,
         };
-        setDataProvi(data);
+
+
+        if (inputIsTrue(name, category, kcal) === false) {
+            return;
+        }
+
+        setDataProvisoirForDisplay(data);
         const message = `Etes vous sur de vouloir ajouter l'aliment:
          ${data.name}
          ${data.kcal} kcal
@@ -57,7 +76,6 @@ const FormulaireAjouterAliment = () => {
          ${data.proteine} proteine
          Dans la category: ${data.category}
          `;
-
         confirm(message, data);
     }
 
@@ -67,15 +85,16 @@ const FormulaireAjouterAliment = () => {
                 <h2>Ajouter des aliments à votre base de donnée</h2>
             </div>
             <form onSubmit={handleSubmit}>
-                <div className={style.alimentContainer}>
+                <div className={`${style.alimentContainer}`}>
                     <InputStyle
                         label="Aliment"
                         type="text"
                         placeholder="...."
                         onChange={(e) => setName(e.target.value)}
                         value={name}
+                        className={`${isInputEmpty ? style.isInputEmpty : ""}`}
                     />
-                    <CategorySelect handleOnSelect={handleOnSelect} />
+                    <CategorySelect className={`${isInputEmpty ? style.isInputEmpty : ""}`} onChange={handleOnSelect} />
                 </div>
                 <div className={style.kcalContainer}>
                     <InputStyle
@@ -84,6 +103,7 @@ const FormulaireAjouterAliment = () => {
                         placeholder="..."
                         onChange={(e) => setKcal(e.target.value)}
                         value={kcal}
+                        className={`${isInputEmpty ? style.isInputEmpty : ""}`}
                     />
                 </div>
                 <div className={style.glucideContainer}>
@@ -121,12 +141,15 @@ const FormulaireAjouterAliment = () => {
                     />
                 </div>
             </form >
-            {isTrue &&
+            {isMessageAdd &&
                 <p className={style.messageAddAliment}>
                     Aliment
-                    <strong> {dataProvi.name} </strong>
+                    <strong> {dataProvisoirForDisplay.name} </strong>
                     ajouter à la base de donnée.
                 </p>}
+            {isInputEmpty &&
+                <p className={style.messageAddAliment}> Champs obligatoire</p>
+            }
         </div >
 
     );
