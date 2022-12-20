@@ -1,9 +1,9 @@
 import style from './style.module.css';
 
-const CategorySelect = ({ handleOnSelect }) => {
+const CategorySelect = ({ onChange, className }) => {
     return (
         <>
-            <select onChange={handleOnSelect} className={style.categoryContainer} id="category">
+            <select onChange={onChange} className={`${style.categoryContainer} ${className}`} id="category">
                 <option value="" >--Choisir une category--</option>
                 <option value="viande">Viande</option>
                 <option value="féculant">Féculant</option>

@@ -62,6 +62,9 @@
     transform: translateX(-50%);
     z-index: 3000;
 }
+.isInputEmpty {
+    background: var(--fx-1);
+}
 /* .messageAddAliment > strong {
     color: var(--fx-1);
 } */

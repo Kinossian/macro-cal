@@ -26,8 +26,8 @@ const Fullscreen = () => {
     return (
         <div className={style.fullscreenButton}>
             <ButtonStyle
-                color="var(--background-2)"
-                background="var(--fx-1)"
+                color="var(--text-1)"
+                background="var(--background-1)"
                 value="Fullscreen"
                 onClick={openCloseFullscreen} />
         </div>
