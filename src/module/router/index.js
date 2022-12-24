@@ -1,8 +1,8 @@
 import React from 'react';
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Ajouter from "../../page/ajouter";
-import Repas from '../../page/repas';
 import Home from '../../page/home';
+import Repas from '../../page/repas';
 
 
 const Router = ({ aliments }) => {

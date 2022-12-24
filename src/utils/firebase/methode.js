@@ -39,6 +39,10 @@ export const doPasswordUpdate = async (password) => {
 export const doAddDocAliment = (data) => {
     addDoc(collection(db, "aliments"), data);
 };
+// Add Document Repa
+export const doAddDocRepa = (data) => {
+    addDoc(collection(db, "repas"), data);
+};
 
 // Delete Document
 export const doDeleteDoc = (alimentId) => {

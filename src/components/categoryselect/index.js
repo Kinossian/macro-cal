@@ -4,7 +4,7 @@ const CategorySelect = ({ onChange, className }) => {
     return (
         <>
             <select onChange={onChange} className={`${style.categoryContainer} ${className}`} id="category">
-                <option value="" >--Choisir une category--</option>
+                <option value="">--Choisir une category--</option>
                 <option value="viande">Viande</option>
                 <option value="féculant">Féculant</option>
                 <option value="légume">Légume</option>

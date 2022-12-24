@@ -83,3 +83,22 @@
 .linkActive {
     border: 1px solid var(--fx-1);
 }
+
+@media (min-width: 650px) {
+    .burger {
+        display: none;
+    }
+    .nav {
+        flex-direction: row;
+        transition: 0.2s;
+        background-color: inherit;
+        position: relative;
+        top: 0;
+        padding: 0;
+        padding: 0 20px 0 110px;
+        font-size: 1rem;
+    }
+    .nav :last-child {
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,20 @@
+.totalMacro {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 10px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+.totalMacro > h5,
+.totalMacro > p {
+    border: 1px solid var(--text-1);
+    padding: 5px;
+    border-radius: 1px;
+    min-width: 70px;
+}
+.totalMacro > p {
+    border-top: none;
+    border-radius: 5px;
+    color: var(--fx-1);
+    font-size: 2rem;
+}

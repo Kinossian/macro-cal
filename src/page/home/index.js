@@ -13,7 +13,7 @@ const Home = () => {
                     <p>Welcome to</p>
                     <h1>Glycemic</h1>
                 </div>
-                {useUser() &&
+                {useUser &&
                     <>
                         <p className={style.youAreConected}>Vous êtes Connecter</p>
                         <ul className={style.choix}>

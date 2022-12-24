@@ -1,0 +1,19 @@
+.repaCard {
+    display: grid;
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background-2);
+    justify-content: center;
+    text-align: start;
+    padding: 20px;
+}
+.repaCard > h3 {
+    cursor: pointer;
+    font-size: 2rem;
+    border-bottom: 1px solid var(--fx-1);
+    border-top-left-radius: 10px;
+}
+.repaCard > h3:hover {
+    background: var(--fx-1);
+}

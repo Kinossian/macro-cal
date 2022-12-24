@@ -33,7 +33,7 @@ body {
 #root {
     height: 100vh;
     display: grid;
-    grid-template-rows: 70px auto;
+    grid-template-rows: 70px 1fr;
 }
 #root:fullscreen {
     overflow: scroll !important;
