@@ -4,12 +4,13 @@ import { useUser } from "../../utils/hooks/custom";
 import RepasContainer from "../../module/repascontainer";
 import DateDay from "../../components/dateday";
 import TotalMacro from "../../components/totalmacro";
+import style from "./style.module.css";
 
 const Repas = () => {
     return (
         <>
             <NavBar />
-            <div>
+            <div className={style.repasPage}>
                 {useUser &&
                     <>
                         <DateDay />

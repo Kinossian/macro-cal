@@ -38,6 +38,7 @@ const AlimentListContainer = ({ target }) => {
             return;
         }
         const alimentChoised = alimentsArray.filter((aliment) => aliment.name === e.target.innerText);
+
         const dataInit = {
             quelRepas: target,
             grammeRepa: Number(grammeRepa),
@@ -69,12 +70,12 @@ const AlimentListContainer = ({ target }) => {
                 <h2>FECULANT</h2>
                 {
                     féculantArray && féculantArray.map((aliment) => (
-                        <li
+                        <div
                             onClick={handleAdd}
                             key={aliment.id}
                             className={style.alimentChoix}>
                             {aliment.name}
-                        </li>
+                        </div>
                     ))
                 }
             </li>
@@ -83,12 +84,12 @@ const AlimentListContainer = ({ target }) => {
                 <h2>LEGUME</h2>
                 {
                     légumeArray && légumeArray.map((aliment) => (
-                        <li
+                        <div
                             onClick={handleAdd}
                             key={aliment.id}
                             className={style.alimentChoix}>
                             {aliment.name}
-                        </li>
+                        </div>
                     ))
                 }
             </li>
@@ -97,12 +98,12 @@ const AlimentListContainer = ({ target }) => {
                 <h2>DESSERT</h2>
                 {
                     dessertArray && dessertArray.map((aliment) => (
-                        <li
+                        <div
                             onClick={handleAdd}
                             key={aliment.id}
                             className={style.alimentChoix}>
                             {aliment.name}
-                        </li>
+                        </div>
                     ))
                 }
             </li>
@@ -111,12 +112,12 @@ const AlimentListContainer = ({ target }) => {
                 <h2>BISCUIT</h2>
                 {
                     biscuitArray && biscuitArray.map((aliment) => (
-                        <li
+                        <div
                             onClick={handleAdd}
                             key={aliment.id}
                             className={style.alimentChoix}>
                             {aliment.name}
-                        </li>
+                        </div>
                     ))
                 }
             </li>
