@@ -21,3 +21,11 @@ export function useAliments() {
     }, []);
     return aliments;
 }
+export function useRepas() {
+    const [repas, setRepas] = useState([]);
+    useEffect(() => {
+        getDocs(collection(db, "repas")).then((res) =>
+            setRepas(res.docs.map((doc) => ({ ...doc.data(), id: doc.id }))));
+    }, []);
+    return repas;
+}

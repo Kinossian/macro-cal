@@ -5,3 +5,9 @@
     text-align: center;
     font-size: 0.7rem;
 }
+
+.buttonAjouter {
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+}

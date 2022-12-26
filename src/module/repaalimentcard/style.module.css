@@ -1,0 +1,85 @@
+.cardAliment {
+    display: grid;
+    grid-template-columns: 2.4fr 1fr 4fr;
+    grid-template-rows: 1fr;
+    gap: 5px;
+    margin: 5px;
+    padding: 5px 5px 5px;
+    text-align: center;
+    align-items: center;
+    background-color: var(--background-2);
+    border-radius: 8px;
+    border: 1px solid #00000000;
+    overflow: hidden;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.nameAliment {
+    padding: 5px 0;
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.cardAliment h3 {
+    position: relative;
+    text-align: start;
+    font-size: 0.8rem;
+    max-height: 15px;
+    text-align: center;
+    /* overflow: hidden; */
+}
+.cardAliment p {
+    font-size: 0.5rem;
+}
+.cardAliment span {
+    font-size: 0.6rem;
+    opacity: 0;
+    display: none;
+}
+
+.macroContainerAll {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.macroContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.macroContainer h4 {
+    border-bottom: 1px solid var(--fx-1);
+    font-size: 0.6rem;
+    padding: 0 0 0;
+}
+.macroContainer p {
+    border-right: 1px solid var(--fx-1);
+    padding: 4px 0 0;
+    font-size: 0.9rem;
+    border-radius: 10px;
+}
+.macroContainer:last-child p {
+    border: none;
+}
+
+.linkActive {
+    height: 90px;
+}
+.linkActive .nameAliment {
+    background-color: var(--background-1);
+    height: 100%;
+    justify-content: space-between;
+}
+.linkActive h3 {
+    max-height: 45px;
+    overflow: visible;
+}
+.linkActive span {
+    opacity: 1;
+    display: block;
+}

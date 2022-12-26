@@ -20,11 +20,11 @@ const FormulaireAjouterAliment = () => {
         setCategory(e.currentTarget.value);
     }, []);
     function inputIsTrue(name, category, kcal) {
-        if (name === "" || category === "" || kcal === "") {
+        if (name.length > 30 || name === "" || category === "" || kcal === "") {
             setIsInputEmpty(true);
             setTimeout(() => {
                 setIsInputEmpty(false);
-            }, 2000);
+            }, 3000);
             return false;
         } else {
             setIsInputEmpty(false);
@@ -60,6 +60,7 @@ const FormulaireAjouterAliment = () => {
             lipide: Number(lipide),
             proteine: Number(proteine),
             category,
+            gramme: 100
         };
 
 
@@ -148,7 +149,7 @@ const FormulaireAjouterAliment = () => {
                     ajouter à la base de donnée.
                 </p>}
             {isInputEmpty &&
-                <p className={style.messageAddAliment}> Champs obligatoire</p>
+                <p className={style.messageAddAliment}>Champs obligatoire et l'aliment ne doit pas dépasser plus de 30 charactère.</p>
             }
         </div >
 
