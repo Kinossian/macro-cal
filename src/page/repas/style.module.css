@@ -1,0 +1,10 @@
+.repasPage {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media (min-width: 500px) {
+    .repasPage {
+        width: 500px;
+    }
+}

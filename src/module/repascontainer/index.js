@@ -1,5 +1,4 @@
 import { useCallback, useMemo, useState } from 'react';
-// import { useAliments } from '../../utils/hooks/custom';
 import style from './style.module.css';
 import RepaCard from '../repacard';
 import AlimentListContainer from "../alimentlistcontainer";
@@ -28,8 +27,6 @@ const RepasContainer = () => {
         setIsAjouter(true);
     }, []);
 
-
-
     return (
         <>
             {isAjouter &&
@@ -41,7 +38,7 @@ const RepasContainer = () => {
                     </>
                 </ul>
             }
-            <div className={style.repasContainer}>
+            <ul className={style.repasContainer}>
                 <RepaCard
                     onClick={handleClick}
                     title="Petit Dèj"
@@ -62,7 +59,7 @@ const RepasContainer = () => {
                     title="Diner"
                     repa={diner}
                 />
-            </div>
+            </ul>
 
         </>
     );
