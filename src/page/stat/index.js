@@ -1,5 +1,6 @@
 import NavBar from '../../module/navbar';
 import StatContainer from '../../module/statcontainer';
+import { useUser } from '../../utils/hooks/custom';
 
 const Stat = () => {
 
@@ -7,7 +8,9 @@ const Stat = () => {
     return (
         <>
             <NavBar />
-            <StatContainer />
+            {useUser() &&
+                <StatContainer />
+            }
         </>
     );
 };
