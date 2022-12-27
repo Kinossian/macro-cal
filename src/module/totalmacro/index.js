@@ -2,18 +2,18 @@ import { useEffect, useMemo, useState } from 'react';
 import { useRepas } from '../../utils/hooks/custom';
 import style from "./style.module.css";
 
-const TotalMacro = () => {
+const TotalMacro = ({ date }) => {
     const repas = useRepas();
     const [kcal, setKcal] = useState(null);
     const [glucide, setglucide] = useState(null);
     const [lipide, setLipide] = useState(null);
     const [proteine, setProteine] = useState(null);
 
-    const today = new Date().toISOString().split("T")[0];
+
 
     const repaByDate = useMemo(() => {
-        return repas.filter((repa) => repa.date === today);
-    }, [repas, today]);
+        return repas.filter((repa) => repa.date === date);
+    }, [repas, date]);
 
     useEffect(() => {
         let kcalArray = [];
