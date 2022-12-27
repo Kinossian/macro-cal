@@ -7,26 +7,37 @@ import style from "./style.module.css";
 
 const AlimentContainer = () => {
     const alimentsArray = useAliments();
+
     const viandeArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "viande";
         });
     }, [alimentsArray]);
+
     const féculantArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "féculant";
         });
     }, [alimentsArray]);
+
+    const laitageArray = useMemo(() => {
+        return alimentsArray.filter((aliment) => {
+            return aliment.category === "laitage";
+        });
+    }, [alimentsArray]);
+
     const légumeArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "légume";
         });
     }, [alimentsArray]);
+
     const biscuitArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "biscuit";
         });
     }, [alimentsArray]);
+
     const dessertArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "dessert";
@@ -51,6 +62,15 @@ const AlimentContainer = () => {
                             <h5>Féculant</h5>
                             {
                                 féculantArray.length > 0 && féculantArray.map((aliment) => (
+                                    <AlimentsCards key={aliment.id} aliment={aliment} />
+                                ))
+                            }
+                        </div>
+                        <div className={`
+                            ${style.alimentContainerByCategory} ${style.color2} ${laitageArray.length <= 0 ? style.disabled : ""}`}>
+                            <h5>Laitage</h5>
+                            {
+                                laitageArray.length > 0 && laitageArray.map((aliment) => (
                                     <AlimentsCards key={aliment.id} aliment={aliment} />
                                 ))
                             }

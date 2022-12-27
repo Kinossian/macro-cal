@@ -16,6 +16,11 @@ const AlimentListContainer = ({ target }) => {
             return aliment.category === "féculant";
         });
     }, [alimentsArray]);
+    const laitageArray = useMemo(() => {
+        return alimentsArray.filter((aliment) => {
+            return aliment.category === "laitage";
+        });
+    }, [alimentsArray]);
     const légumeArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "légume";
@@ -70,6 +75,20 @@ const AlimentListContainer = ({ target }) => {
                 <h2>FECULANT</h2>
                 {
                     féculantArray && féculantArray.map((aliment) => (
+                        <div
+                            onClick={handleAdd}
+                            key={aliment.id}
+                            className={style.alimentChoix}>
+                            {aliment.name}
+                        </div>
+                    ))
+                }
+            </li>
+
+            <li className={style.alimentListContainer}>
+                <h2>LAITAGE</h2>
+                {
+                    laitageArray && laitageArray.map((aliment) => (
                         <div
                             onClick={handleAdd}
                             key={aliment.id}
