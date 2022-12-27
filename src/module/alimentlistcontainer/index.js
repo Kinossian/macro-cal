@@ -42,7 +42,7 @@ const AlimentListContainer = ({ target }) => {
         const dataInit = {
             quelRepas: target,
             grammeRepa: Number(grammeRepa),
-            date: Date.now()
+            date: new Date().toISOString().split("T")[0]
         };
         const data = { ...dataInit, ...alimentChoised[0] };
         doAddDocRepa(data);

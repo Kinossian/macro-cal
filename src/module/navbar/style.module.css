@@ -1,6 +1,7 @@
 .header {
     display: grid;
     grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
     place-items: end;
     align-items: center;
     font-size: 2rem;
@@ -39,14 +40,13 @@
     border: 1px solid var(--fx-1);
 }
 .nav {
-    display: flex;
-    justify-content: flex-end;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 1fr 1fr 1fr 1fr;
     align-items: center;
     transition: 0.2s;
-    /* transition-delay: 0.2s; */
     flex-direction: column;
     width: 100%;
-    height: 0;
     position: absolute;
     top: -100%;
     background-color: var(--background-2);
@@ -59,17 +59,27 @@
     top: 0;
     height: 100vh;
 }
+.navTitle {
+    display: block;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--background-1);
+    text-shadow: 0 0 30px white;
+    user-select: none;
+}
 .nav a {
-    margin: 10px 0;
+    /* margin: 10px 0; */
+    background: var(--background-3);
+    box-shadow: 0 0 1px var(--text-1);
     padding: 10px 10px;
     width: 100%;
     text-align: center;
     border-radius: 8px;
 }
 .nav a:hover {
-    border: 1px solid var(--fx-1);
-    border-radius: 8px;
+    border-bottom: 3px solid var(--fx-1);
     box-shadow: 0 0 10px var(--fx-1);
+    border-radius: 8px;
 }
 .nav a:active {
     border-radius: 8px;
@@ -77,11 +87,14 @@
     opacity: 0.8;
 }
 .nav :last-child {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     width: 100%;
+    background: var(--background-3);
+    box-shadow: 0 0 10px var(--text-1);
 }
 .linkActive {
-    border: 1px solid var(--fx-1);
+    border-bottom: 3px solid var(--fx-1);
+    /* box-shadow: 0 0 10px var(--fx-1); */
 }
 
 @media (min-width: 650px) {
@@ -89,16 +102,22 @@
         display: none;
     }
     .nav {
-        flex-direction: row;
+        grid-template-columns: 2fr 2fr 2fr 1fr;
+        gap: 50px;
+        grid-template-rows: 1fr;
         transition: 0.2s;
         background-color: inherit;
-        position: relative;
-        top: 0;
+        /* position: relative; */
+        justify-content: center;
+        top: 15px;
         padding: 0;
-        padding: 0 20px 0 110px;
+        padding: 0 20px 0 200px;
         font-size: 1rem;
     }
     .nav :last-child {
         margin-top: 0;
+    }
+    .navTitle {
+        display: none;
     }
 }

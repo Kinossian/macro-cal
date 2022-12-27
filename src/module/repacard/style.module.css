@@ -7,6 +7,7 @@
     justify-content: center;
     text-align: start;
     padding: 20px;
+    border-radius: 5px;
 }
 .repaCard > h3 {
     cursor: pointer;
@@ -16,4 +17,9 @@
 }
 .repaCard > h3:hover {
     background: var(--fx-1);
+}
+.aucunPlat {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--background-1);
 }

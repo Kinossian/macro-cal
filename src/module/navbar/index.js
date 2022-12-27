@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import ButtonStyle from "../../components/button";
 import Logo from "../../components/logo";
 import { doSignOut } from "../../utils/firebase/methode";
 import style from "./style.module.css";
@@ -20,6 +19,7 @@ const NavBar = () => {
                 </NavLink>
                 <span onClick={navDisplay} className={style.burger}>=</span>
                 <nav className={`${style.nav} ${isTrue ? style.navActive : ""}`}>
+                    <h5 className={style.navTitle}>NAVIGATION</h5>
                     <NavLink
                         to="/ajouter"
                         className={(nav) =>
@@ -36,14 +36,19 @@ const NavBar = () => {
                     >
                         Repas
                     </NavLink>
-
-                    <ButtonStyle
-                        value="logout"
-                        color="var(--text-1)"
-                        background="var(--background-1)"
-                        fontSize="0.8rem"
-                        onClick={doSignOut}
-                    />
+                    <NavLink
+                        to="/stat"
+                        className={(nav) =>
+                            nav.isActive ? style.linkActive : ""
+                        }
+                    >
+                        Stat
+                    </NavLink>
+                    <NavLink
+                        to="/" onClick={doSignOut}
+                    >
+                        Logout
+                    </NavLink>
                 </nav>
             </header>
 

@@ -7,3 +7,4 @@ export default function dateFormater(date) {
     });
     return newDate;
 }
+
