@@ -7,6 +7,8 @@ import TotalMacro from "../../module/totalmacro";
 import style from "./style.module.css";
 
 const Repas = () => {
+    const today = new Date().toISOString().split("T")[0];
+
     return (
         <>
             <NavBar />
@@ -14,7 +16,7 @@ const Repas = () => {
                 {useUser() &&
                     <>
                         <DateDay />
-                        <TotalMacro />
+                        <TotalMacro date={today} />
                         <RepasContainer />
                     </>
                 }

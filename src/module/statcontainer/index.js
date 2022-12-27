@@ -2,6 +2,7 @@ import { useCallback, useMemo, useState } from "react";
 import { useRepas } from "../../utils/hooks/custom";
 import style from "./style.module.css";
 import RepaCard from "../repacard";
+import TotalMacro from "../totalmacro";
 
 
 const StatContainer = () => {
@@ -36,6 +37,8 @@ const StatContainer = () => {
             <form>
                 <input type="date" onChange={handleChange} value={dateChoice} />
             </form>
+
+            <TotalMacro date={dateChoice} />
 
             <RepaCard
                 title="Petit Dèj"
