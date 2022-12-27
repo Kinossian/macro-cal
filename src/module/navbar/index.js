@@ -26,7 +26,7 @@ const NavBar = () => {
                             nav.isActive ? style.linkActive : ""
                         }
                     >
-                        Ajouter
+                        Data Base
                     </NavLink>
                     <NavLink
                         to="/repas"
