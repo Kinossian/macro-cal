@@ -4,7 +4,6 @@ import { useUser } from "../../utils/hooks/custom";
 import style from "./style.module.css";
 
 const Home = () => {
-
     return (
         <>
             <NavBar />
@@ -13,7 +12,7 @@ const Home = () => {
                     <p>Welcome to</p>
                     <h1>Glycemic</h1>
                 </div>
-                {useUser &&
+                {useUser() &&
                     <>
                         <p className={style.youAreConected}>Vous êtes Connecter</p>
                         <ul className={style.choix}>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useRepas } from '../../utils/hooks/custom';
 import style from "./style.module.css";
 
@@ -9,6 +9,12 @@ const TotalMacro = () => {
     const [lipide, setLipide] = useState(null);
     const [proteine, setProteine] = useState(null);
 
+    const today = new Date().toISOString().split("T")[0];
+
+    const repaByDate = useMemo(() => {
+        return repas.filter((repa) => repa.date === today);
+    }, [repas, today]);
+
     useEffect(() => {
         let kcalArray = [];
         let glucideArray = [];
@@ -18,7 +24,7 @@ const TotalMacro = () => {
         let totalGlucide = 0;
         let totalLipide = 0;
         let totalProteine = 0;
-        repas.map((repa) => {
+        repaByDate.map((repa) => {
             const gramme = repa.gramme;
             const grammeRepa = repa.grammeRepa;
             function calcul(macro) {
@@ -41,11 +47,11 @@ const TotalMacro = () => {
             }
             return total;
         }
-        setKcal(addition(kcalArray, totalKcal));
-        setglucide(addition(glucideArray, totalGlucide));
-        setLipide(addition(lipideArray, totalLipide));
-        setProteine(addition(proteineArray, totalProteine));
-    }, [repas]);
+        setKcal(Math.floor(addition(kcalArray, totalKcal)));
+        setglucide(Math.floor(addition(glucideArray, totalGlucide)));
+        setLipide(Math.floor(addition(lipideArray, totalLipide)));
+        setProteine(Math.floor(addition(proteineArray, totalProteine)));
+    }, [repaByDate]);
 
     return (
         <div className={style.totalMacro}>

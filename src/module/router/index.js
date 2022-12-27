@@ -3,6 +3,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import Ajouter from "../../page/ajouter";
 import Home from '../../page/home';
 import Repas from '../../page/repas';
+import Stat from '../../page/stat/index.js';
 
 
 const Router = ({ aliments }) => {
@@ -19,6 +20,9 @@ const Router = ({ aliments }) => {
                     <Route
                         path="/repas"
                         element={<Repas />} />
+                    <Route
+                        path="/stat"
+                        element={<Stat />} />
                     <Route
                         path="*"
                         element={<Home />} />

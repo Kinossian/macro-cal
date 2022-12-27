@@ -8,19 +8,24 @@ const RepasContainer = () => {
     const [isAjouter, setIsAjouter] = useState(false);
     const [target, setTarget] = useState("");
     const repas = useRepas();
+    const today = new Date().toISOString().split("T")[0];
+
+    const repaByDate = useMemo(() => {
+        return repas.filter((repas) => repas.date === today);
+    }, [repas, today]);
 
     const petitDèj = useMemo(() => {
-        return repas.filter((repas) => repas.quelRepas === "Petit Dèj");
-    }, [repas]);
+        return repaByDate.filter((repas) => repas.quelRepas === "Petit Dèj");
+    }, [repaByDate]);
     const déjeuner = useMemo(() => {
-        return repas.filter((repas) => repas.quelRepas === "Déjeuner");
-    }, [repas]);
+        return repaByDate.filter((repas) => repas.quelRepas === "Déjeuner");
+    }, [repaByDate]);
     const extra = useMemo(() => {
-        return repas.filter((repas) => repas.quelRepas === "Extra");
-    }, [repas]);
+        return repaByDate.filter((repas) => repas.quelRepas === "Extra");
+    }, [repaByDate]);
     const diner = useMemo(() => {
-        return repas.filter((repas) => repas.quelRepas === "Diner");
-    }, [repas]);
+        return repaByDate.filter((repas) => repas.quelRepas === "Diner");
+    }, [repaByDate]);
 
     const handleClick = useCallback((e) => {
         setTarget(e.target.innerText);

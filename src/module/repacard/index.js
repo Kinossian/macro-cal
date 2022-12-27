@@ -7,11 +7,12 @@ const RepaCard = ({ onClick, title, repa }) => {
             <h3 onClick={onClick}>{title}</h3>
             <ul>
                 {
-                    repa && repa.map((aliment) => (
+                    repa.length > 0 ? repa.map((aliment) => (
                         <RepaAlimentCard
                             key={aliment.id}
                             aliment={aliment} />
-                    ))
+                    )) :
+                        <p className={style.aucunPlat}>Aucun Plat</p>
                 }
             </ul>
         </li>
