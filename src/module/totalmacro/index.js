@@ -1,9 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useRepas } from '../../utils/hooks/custom';
+import { useRepas, useUser } from '../../utils/hooks/custom';
 import style from "./style.module.css";
 
 const TotalMacro = ({ date }) => {
-    const repas = useRepas();
+    const user = useUser();
+    const list = useRepas();
+    const alimentsArray = useMemo(() => {
+        return list.filter((aliment) => aliment.user === user.email);
+    }, [list, user]);
     const [kcal, setKcal] = useState(null);
     const [glucide, setglucide] = useState(null);
     const [lipide, setLipide] = useState(null);
@@ -12,8 +16,8 @@ const TotalMacro = ({ date }) => {
 
 
     const repaByDate = useMemo(() => {
-        return repas.filter((repa) => repa.date === date);
-    }, [repas, date]);
+        return alimentsArray.filter((repa) => repa.date === date);
+    }, [alimentsArray, date]);
 
     useEffect(() => {
         let kcalArray = [];
@@ -47,10 +51,10 @@ const TotalMacro = ({ date }) => {
             }
             return total;
         }
-        setKcal(Math.floor(addition(kcalArray, totalKcal)));
-        setglucide(Math.floor(addition(glucideArray, totalGlucide)));
-        setLipide(Math.floor(addition(lipideArray, totalLipide)));
-        setProteine(Math.floor(addition(proteineArray, totalProteine)));
+        setKcal(Math.round(addition(kcalArray, totalKcal)));
+        setglucide(Math.round(addition(glucideArray, totalGlucide)));
+        setLipide(Math.round(addition(lipideArray, totalLipide)));
+        setProteine(Math.round(addition(proteineArray, totalProteine)));
     }, [repaByDate]);
 
     return (

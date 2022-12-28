@@ -19,10 +19,10 @@ const RepaAlimentCard = ({ aliment }) => {
             return (macro / gramme) * grammeRepa;
         }
 
-        setKcalForOne(Math.floor(calculMacro(kcal)));
-        setGlucideForOne(Math.floor(calculMacro(glucide)));
-        setLipideForOne(Math.floor(calculMacro(lipide)));
-        setProteineForOne(Math.floor(calculMacro(proteine)));
+        setKcalForOne(Math.round(calculMacro(kcal)));
+        setGlucideForOne(Math.round(calculMacro(glucide)));
+        setLipideForOne(Math.round(calculMacro(lipide)));
+        setProteineForOne(Math.round(calculMacro(proteine)));
     }, [aliment.glucide, aliment.gramme, aliment.grammeRepa, aliment.kcal, aliment.proteine, aliment.lipide]);
 
 

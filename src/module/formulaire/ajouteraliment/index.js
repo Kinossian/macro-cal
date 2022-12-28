@@ -4,6 +4,7 @@ import ButtonStyle from '../../../components/button';
 import style from './style.module.css';
 import { doAddDocAliment } from '../../../utils/firebase/methode';
 import CategorySelect from '../../../components/categoryselect';
+import { useUser } from "../../../utils/hooks/custom";
 
 const FormulaireAjouterAliment = () => {
     const [dataProvisoirForDisplay, setDataProvisoirForDisplay] = useState({});
@@ -15,6 +16,7 @@ const FormulaireAjouterAliment = () => {
     const [category, setCategory] = useState("");
     const [isInputEmpty, setIsInputEmpty] = useState(false);
     const [isMessageAdd, setIsMessageAdd] = useState(false);
+    const user = useUser();
 
     const handleOnSelect = useCallback((e) => {
         setCategory(e.currentTarget.value);
@@ -60,9 +62,9 @@ const FormulaireAjouterAliment = () => {
             lipide: Number(lipide),
             proteine: Number(proteine),
             category,
-            gramme: 100
+            gramme: 100,
+            user: user.email
         };
-
 
         if (inputIsTrue(name, category, kcal) === false) {
             return;

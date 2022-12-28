@@ -1,12 +1,16 @@
 import { useMemo } from 'react';
-import { useAliments } from '../../../utils/hooks/custom';
+import { useAliments, useUser } from '../../../utils/hooks/custom';
 import AlimentsCards from '../card';
 import style from "./style.module.css";
 
 
 
 const DataBaseAlimentContainer = () => {
-    const alimentsArray = useAliments();
+    const user = useUser();
+    const list = useAliments();
+    const alimentsArray = useMemo(() => {
+        return list.filter((aliment) => aliment.user === user.email);
+    }, [list, user]);
 
     const viandeArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
