@@ -3,7 +3,7 @@ import { useAliments } from '../../utils/hooks/custom';
 import style from "./style.module.css";
 import { doAddDocRepa } from '../../utils/firebase/methode';
 
-const AlimentListContainer = ({ target }) => {
+const ListAddContainer = ({ target }) => {
     const alimentsArray = useAliments();
 
     const viandeArray = useMemo(() => {
@@ -11,26 +11,37 @@ const AlimentListContainer = ({ target }) => {
             return aliment.category === "viande";
         });
     }, [alimentsArray]);
+
     const féculantArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "féculant";
         });
     }, [alimentsArray]);
+
     const laitageArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "laitage";
         });
     }, [alimentsArray]);
+
+    const huileArray = useMemo(() => {
+        return alimentsArray.filter((aliment) => {
+            return aliment.category === "huile";
+        });
+    }, [alimentsArray]);
+
     const légumeArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "légume";
         });
     }, [alimentsArray]);
+
     const biscuitArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "biscuit";
         });
     }, [alimentsArray]);
+
     const dessertArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "dessert";
@@ -64,7 +75,8 @@ const AlimentListContainer = ({ target }) => {
                         <div
                             onClick={handleAdd}
                             key={aliment.id}
-                            className={style.alimentChoix}>
+                            className={style.alimentChoix}
+                        >
                             {aliment.name}
                         </div>
                     ))
@@ -78,7 +90,8 @@ const AlimentListContainer = ({ target }) => {
                         <div
                             onClick={handleAdd}
                             key={aliment.id}
-                            className={style.alimentChoix}>
+                            className={style.alimentChoix}
+                        >
                             {aliment.name}
                         </div>
                     ))
@@ -92,7 +105,23 @@ const AlimentListContainer = ({ target }) => {
                         <div
                             onClick={handleAdd}
                             key={aliment.id}
-                            className={style.alimentChoix}>
+                            className={style.alimentChoix}
+                        >
+                            {aliment.name}
+                        </div>
+                    ))
+                }
+            </li>
+
+            <li className={style.alimentListContainer}>
+                <h2>HUILE</h2>
+                {
+                    huileArray && huileArray.map((aliment) => (
+                        <div
+                            onClick={handleAdd}
+                            key={aliment.id}
+                            className={style.alimentChoix}
+                        >
                             {aliment.name}
                         </div>
                     ))
@@ -106,7 +135,8 @@ const AlimentListContainer = ({ target }) => {
                         <div
                             onClick={handleAdd}
                             key={aliment.id}
-                            className={style.alimentChoix}>
+                            className={style.alimentChoix}
+                        >
                             {aliment.name}
                         </div>
                     ))
@@ -120,7 +150,8 @@ const AlimentListContainer = ({ target }) => {
                         <div
                             onClick={handleAdd}
                             key={aliment.id}
-                            className={style.alimentChoix}>
+                            className={style.alimentChoix}
+                        >
                             {aliment.name}
                         </div>
                     ))
@@ -134,7 +165,8 @@ const AlimentListContainer = ({ target }) => {
                         <div
                             onClick={handleAdd}
                             key={aliment.id}
-                            className={style.alimentChoix}>
+                            className={style.alimentChoix}
+                        >
                             {aliment.name}
                         </div>
                     ))
@@ -144,4 +176,4 @@ const AlimentListContainer = ({ target }) => {
     );
 };
 
-export default AlimentListContainer;
+export default ListAddContainer;

@@ -56,8 +56,8 @@ const TotalMacro = ({ date }) => {
     return (
         <div className={style.totalMacro}>
             <h5>Kcal</h5>
-            <h5>Lipide</h5>
             <h5>Glucide</h5>
+            <h5>Lipide</h5>
             <h5>Proteine</h5>
             <p>{kcal}</p>
             <p>{glucide}</p>

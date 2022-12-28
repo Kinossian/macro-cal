@@ -8,6 +8,7 @@ const CategorySelect = ({ onChange, className }) => {
                 <option value="viande">Viande</option>
                 <option value="féculant">Féculant</option>
                 <option value="laitage">Laitage</option>
+                <option value="huile">Huile</option>
                 <option value="légume">Légume</option>
                 <option value="biscuit">Biscuit</option>
                 <option value="dessert">Dessert</option>

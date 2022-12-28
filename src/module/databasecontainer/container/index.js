@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
-import { useAliments } from '../../utils/hooks/custom';
-import AlimentsCards from '../alimentcard';
+import { useAliments } from '../../../utils/hooks/custom';
+import AlimentsCards from '../card';
 import style from "./style.module.css";
 
 
 
-const AlimentContainer = () => {
+const DataBaseAlimentContainer = () => {
     const alimentsArray = useAliments();
 
     const viandeArray = useMemo(() => {
@@ -23,6 +23,12 @@ const AlimentContainer = () => {
     const laitageArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "laitage";
+        });
+    }, [alimentsArray]);
+
+    const huileArray = useMemo(() => {
+        return alimentsArray.filter((aliment) => {
+            return aliment.category === "huile";
         });
     }, [alimentsArray]);
 
@@ -76,6 +82,15 @@ const AlimentContainer = () => {
                             }
                         </div>
                         <div className={`
+                            ${style.alimentContainerByCategory} ${style.color2} ${huileArray.length <= 0 ? style.disabled : ""}`}>
+                            <h5>Huile</h5>
+                            {
+                                huileArray.length > 0 && huileArray.map((aliment) => (
+                                    <AlimentsCards key={aliment.id} aliment={aliment} />
+                                ))
+                            }
+                        </div>
+                        <div className={`
                             ${style.alimentContainerByCategory} ${style.color1} ${légumeArray.length <= 0 ? style.disabled : ""}`}>
                             <h5>Légume</h5>
                             {
@@ -110,4 +125,4 @@ const AlimentContainer = () => {
     );
 };
 
-export default AlimentContainer;
+export default DataBaseAlimentContainer;

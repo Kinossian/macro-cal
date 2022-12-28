@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter, Route, Routes } from "react-router-dom";
-import Ajouter from "../../page/ajouter";
+import DataBase from "../../page/database";
 import Home from '../../page/home';
 import Repas from '../../page/repas';
 import Stat from '../../page/stat/index.js';
@@ -16,7 +16,7 @@ const Router = ({ aliments }) => {
                         element={<Home />} />
                     <Route
                         path="/ajouter"
-                        element={<Ajouter aliments={aliments} />} />
+                        element={<DataBase aliments={aliments} />} />
                     <Route
                         path="/repas"
                         element={<Repas />} />

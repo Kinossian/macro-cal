@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { useRepas } from "../../utils/hooks/custom";
 import style from "./style.module.css";
-import RepaCard from "../repacard";
+import RepaCard from "../alimentmacrocard/cardcontainer";
 import TotalMacro from "../totalmacro";
 
 

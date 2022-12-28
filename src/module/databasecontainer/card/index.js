@@ -34,7 +34,7 @@ const AlimentsCards = ({ aliment }) => {
                     <p>{aliment.proteine}</p>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
