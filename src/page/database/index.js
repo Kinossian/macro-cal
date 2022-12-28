@@ -18,18 +18,18 @@ const DataBase = () => {
             <NavBar />
 
             {useUser() &&
-                <>
+                <div className={style.dataBaseContainer}>
                     <div className={style.buttonAjouter}>
                         <ButtonStyle
                             value="Formulaire d'Ajouts"
-                            color='var(--text-1)'
-                            background="var(--background-2)"
+                            color={isAjouter ? "var(--fx-1)" : "var(--text-1)"}
+                            background="var(--background-3)"
                             onClick={() => setIsAjouter(true)}
                         />
                         <ButtonStyle
                             value="Base de donnée"
-                            color='var(--text-1)'
-                            background="var(--background-2)"
+                            color={isAjouter ? "var(--text-1)" : "var(--fx-1)"}
+                            background="var(--background-3)"
                             onClick={() => setIsAjouter(false)}
                         />
                     </div>
@@ -41,7 +41,7 @@ const DataBase = () => {
                             :
                             <DBAlimentContainer />
                     }
-                </>
+                </div>
             }
         </>
     );

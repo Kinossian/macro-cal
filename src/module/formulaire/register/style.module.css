@@ -11,3 +11,8 @@
 .formContainer button {
     margin-top: 20px;
 }
+.error {
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: var(--fx-1);
+}

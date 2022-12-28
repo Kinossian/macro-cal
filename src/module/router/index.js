@@ -6,7 +6,7 @@ import Repas from '../../page/repas';
 import Stat from '../../page/stat/index.js';
 
 
-const Router = ({ aliments }) => {
+const Router = () => {
     return (
         <>
             <HashRouter>
@@ -16,7 +16,7 @@ const Router = ({ aliments }) => {
                         element={<Home />} />
                     <Route
                         path="/ajouter"
-                        element={<DataBase aliments={aliments} />} />
+                        element={<DataBase />} />
                     <Route
                         path="/repas"
                         element={<Repas />} />

@@ -12,15 +12,13 @@ const Repas = () => {
     return (
         <>
             <NavBar />
-            <div className={style.repasPage}>
-                {useUser() &&
-                    <>
-                        <DateDay />
-                        <TotalMacro date={today} />
-                        <RepasContainer />
-                    </>
-                }
-            </div>
+            {useUser() &&
+                <div className={style.repasPage}>
+                    <DateDay />
+                    <TotalMacro date={today} />
+                    <RepasContainer />
+                </div>
+            }
         </>
     );
 };

@@ -48,7 +48,7 @@
     flex-direction: column;
     width: 100%;
     position: absolute;
-    top: -100%;
+    top: -1000%;
     background-color: var(--background-2);
     padding: 100px 30px 30px;
     box-shadow: 0 0 10px #2e2e2e;
@@ -58,6 +58,7 @@
 .navActive {
     top: 0;
     height: 100vh;
+    /* position: fixed; */
 }
 .navTitle {
     display: block;
@@ -68,7 +69,6 @@
     user-select: none;
 }
 .nav a {
-    /* margin: 10px 0; */
     background: var(--background-3);
     box-shadow: 0 0 1px var(--text-1);
     padding: 10px 10px;
@@ -87,17 +87,15 @@
     opacity: 0.8;
 }
 .nav :last-child {
-    /* margin-top: 20px; */
     width: 100%;
     background: var(--background-3);
     box-shadow: 0 0 10px var(--text-1);
 }
 .linkActive {
     border-bottom: 3px solid var(--fx-1);
-    /* box-shadow: 0 0 10px var(--fx-1); */
 }
 
-@media (min-width: 650px) {
+@media (min-width: 770px) {
     .burger {
         display: none;
     }
@@ -107,7 +105,6 @@
         grid-template-rows: 1fr;
         transition: 0.2s;
         background-color: inherit;
-        /* position: relative; */
         justify-content: center;
         top: 15px;
         padding: 0;

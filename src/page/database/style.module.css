@@ -1,3 +1,5 @@
+.dataBaseContainer {
+}
 .ajouterPage {
     margin: 30px 0 10px;
 }
@@ -10,4 +12,7 @@
     margin: 20px 0;
     width: 100%;
     display: flex;
+}
+.active {
+    background: red;
 }

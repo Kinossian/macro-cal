@@ -9,12 +9,15 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [pseudo, setPseudo] = useState("");
+    const [error, setError] = useState(false);
 
     async function handleSubmit(e) {
         e.preventDefault();
-
-
-        console.log(email, password, pseudo);
+        if (password.length < 6) {
+            setError(true);
+            return;
+        }
+        setError(false);
         await doCreateUserWithEmailAndPassword(email, password, pseudo);
     }
 
@@ -33,6 +36,7 @@ const Register = () => {
                     placeholder="...."
                     onChange={(e) => setPassword(e.target.value)}
                 />
+                {error && <p className={style.error}>Minimum 6 charactère pour le password</p>}
                 <InputStyle
                     label="Pseudo"
                     type="text"
