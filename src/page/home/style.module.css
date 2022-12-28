@@ -31,3 +31,14 @@
     background: var(--fx-1);
     box-shadow: 0 0 10px var(--fx-1);
 }
+.user {
+    font-size: 2rem;
+    border-bottom: 1px solid var(--fx-1);
+    border-top: 1px solid var(--text-1);
+    box-shadow: 0 0 10px var(--fx-1);
+    user-select: none;
+    cursor: none;
+    padding: 10px;
+    border-radius: 20px;
+    text-transform: capitalize;
+}

@@ -1,18 +1,23 @@
 import { useCallback, useMemo, useState } from "react";
-import { useRepas } from "../../utils/hooks/custom";
+import { useRepas, useUser } from "../../utils/hooks/custom";
 import style from "./style.module.css";
 import RepaCard from "../alimentmacrocard/cardcontainer";
 import TotalMacro from "../totalmacro";
 
 
 const StatContainer = () => {
-    const repas = useRepas();
     const today = new Date().toISOString().split("T")[0];
     const [dateChoice, setDateChoice] = useState(today);
 
+    const user = useUser();
+    const list = useRepas();
+    const alimentsArray = useMemo(() => {
+        return list.filter((aliment) => aliment.user === user.email);
+    }, [list, user]);
+
     const repaByDate = useMemo(() => {
-        return repas.filter((repas) => repas.date === dateChoice);
-    }, [repas, dateChoice]);
+        return alimentsArray.filter((repas) => repas.date === dateChoice);
+    }, [alimentsArray, dateChoice]);
 
     const petitDèj = useMemo(() => {
         return repaByDate.filter((repas) => repas.quelRepas === "Petit Dèj");

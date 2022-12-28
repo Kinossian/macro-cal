@@ -1,10 +1,16 @@
 import React, { useCallback, useMemo } from 'react';
-import { useAliments } from '../../utils/hooks/custom';
+import { useAliments, useUser } from '../../utils/hooks/custom';
 import style from "./style.module.css";
 import { doAddDocRepa } from '../../utils/firebase/methode';
 
 const ListAddContainer = ({ target }) => {
-    const alimentsArray = useAliments();
+    const user = useUser();
+    const list = useAliments();
+    const alimentsArray = useMemo(() => {
+        return list.filter((aliment) => aliment.user === user.email);
+    }, [list, user]);
+
+
 
     const viandeArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
