@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import style from './style.module.css';
-import RepaCard from '../repacard';
-import AlimentListContainer from "../alimentlistcontainer";
+import RepaCard from '../alimentmacrocard/cardcontainer';
+import ListAddContainer from "../listaddcontainer";
 import { useRepas } from '../../utils/hooks/custom';
 
 const RepasContainer = () => {
@@ -39,7 +39,7 @@ const RepasContainer = () => {
                     <>
                         <h5 onClick={() => setIsAjouter(false)}>{target}</h5>
                         <p>Ajouter un aliment a ton repa</p>
-                        <AlimentListContainer target={target} />
+                        <ListAddContainer target={target} />
                     </>
                 </ul>
             }

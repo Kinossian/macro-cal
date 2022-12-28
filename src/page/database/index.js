@@ -4,12 +4,13 @@ import style from "./style.module.css";
 import { useUser } from "../../utils/hooks/custom";
 import { useState } from "react";
 import ButtonStyle from "../../components/button";
-import AlimentContainer from "../../module/alimentcontainer";
+import DBAlimentContainer from "../../module/databasecontainer/container";
 
 
 
 
-const AjouterAlimentPage = () => {
+
+const DataBase = () => {
     const [isAjouter, setIsAjouter] = useState(true);
 
     return (
@@ -18,14 +19,6 @@ const AjouterAlimentPage = () => {
 
             {useUser() &&
                 <>
-                    {
-                        isAjouter ?
-                            <div className={style.ajouterPage}>
-                                <FormulaireAjouterAliment />
-                            </div>
-                            :
-                            <AlimentContainer />
-                    }
                     <div className={style.buttonAjouter}>
                         <ButtonStyle
                             value="Formulaire d'Ajouts"
@@ -40,10 +33,18 @@ const AjouterAlimentPage = () => {
                             onClick={() => setIsAjouter(false)}
                         />
                     </div>
+                    {
+                        isAjouter ?
+                            <div className={style.ajouterPage}>
+                                <FormulaireAjouterAliment />
+                            </div>
+                            :
+                            <DBAlimentContainer />
+                    }
                 </>
             }
         </>
     );
 };
 
-export default AjouterAlimentPage;
+export default DataBase;

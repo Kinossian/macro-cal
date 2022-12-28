@@ -1,4 +1,4 @@
-import RepaAlimentCard from "../repaalimentcard";
+import RepaAlimentCard from "../cardcontent";
 import style from "./style.module.css";
 
 const RepaCard = ({ onClick, title, repa }) => {
