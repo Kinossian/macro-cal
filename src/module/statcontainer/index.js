@@ -45,23 +45,24 @@ const StatContainer = () => {
 
             <TotalMacro date={dateChoice} />
 
-            <RepaCard
-                title="Petit Dèj"
-                repa={petitDèj}
-            />
-            <RepaCard
-                title="Déjeuner"
-                repa={déjeuner}
-            />
-            <RepaCard
-                title="Extra"
-                repa={extra}
-            />
-            <RepaCard
-                title="Diner"
-                repa={diner}
-            />
-
+            <ul className={style.statList}>
+                <RepaCard
+                    title="Petit Dèj"
+                    repa={petitDèj}
+                />
+                <RepaCard
+                    title="Déjeuner"
+                    repa={déjeuner}
+                />
+                <RepaCard
+                    title="Extra"
+                    repa={extra}
+                />
+                <RepaCard
+                    title="Diner"
+                    repa={diner}
+                />
+            </ul>
         </div>
 
     );
