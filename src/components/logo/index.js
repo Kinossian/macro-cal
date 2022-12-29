@@ -1,10 +1,10 @@
 import React from "react";
 import style from "./style.module.css";
-import logo from "../../img/kred.png";
+import glycemiclogo from "../../img/glycemiclogo.svg";
 const Logo = () => {
     return (
         <>
-            <img src={logo} alt="alternate" className={style.logo} />
+            <img src={glycemiclogo} alt="alternate" className={style.logo} />
         </>
     );
 };
