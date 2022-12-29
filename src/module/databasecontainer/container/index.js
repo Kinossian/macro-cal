@@ -1,123 +1,76 @@
-import { useMemo } from 'react';
-import { useAliments, useUser } from '../../../utils/hooks/custom';
 import AlimentsCards from '../card';
 import style from "./style.module.css";
+import { useAlimentFilter } from '../../../utils/hooks/useAlimentFilter';
 
 
 
 const DataBaseAlimentContainer = () => {
-    const user = useUser();
-    const list = useAliments();
-    const alimentsArray = useMemo(() => {
-        return list.filter((aliment) => aliment.user === user.email);
-    }, [list, user]);
-
-    const viandeArray = useMemo(() => {
-        return alimentsArray.filter((aliment) => {
-            return aliment.category === "viande";
-        });
-    }, [alimentsArray]);
-
-    const féculantArray = useMemo(() => {
-        return alimentsArray.filter((aliment) => {
-            return aliment.category === "féculant";
-        });
-    }, [alimentsArray]);
-
-    const laitageArray = useMemo(() => {
-        return alimentsArray.filter((aliment) => {
-            return aliment.category === "laitage";
-        });
-    }, [alimentsArray]);
-
-    const huileArray = useMemo(() => {
-        return alimentsArray.filter((aliment) => {
-            return aliment.category === "huile";
-        });
-    }, [alimentsArray]);
-
-    const légumeArray = useMemo(() => {
-        return alimentsArray.filter((aliment) => {
-            return aliment.category === "légume";
-        });
-    }, [alimentsArray]);
-
-    const biscuitArray = useMemo(() => {
-        return alimentsArray.filter((aliment) => {
-            return aliment.category === "biscuit";
-        });
-    }, [alimentsArray]);
-
-    const dessertArray = useMemo(() => {
-        return alimentsArray.filter((aliment) => {
-            return aliment.category === "dessert";
-        });
-    }, [alimentsArray]);
+    const aliments = useAlimentFilter();
 
     return (
         <>
             {
-                alimentsArray.length > 0 ? (
+                aliments.alimentsArray.length > 0 ? (
                     <div className={style.alimentContainer}>
-                        <div className={`${style.alimentContainerByCategory} ${style.color1} ${viandeArray.length <= 0 ? style.disabled : ""}`}>
+                        <div className={`${style.alimentContainerByCategory} ${style.color1} ${aliments.viandeArray.length <= 0 ? style.disabled : ""}`}>
                             <h5>Viande</h5>
                             {
-                                viandeArray.length > 0 && viandeArray.map((aliment) => (
+                                aliments.viandeArray.length > 0 && aliments.viandeArray.map((aliment) => (
                                     <AlimentsCards key={aliment.id} aliment={aliment} />
                                 ))
                             }
                         </div>
                         <div className={`
-                            ${style.alimentContainerByCategory} ${style.color2} ${féculantArray.length <= 0 ? style.disabled : ""}`}>
+                            ${style.alimentContainerByCategory} ${style.color2} ${aliments.féculantArray.length <= 0 ? style.disabled : ""}`}>
                             <h5>Féculant</h5>
                             {
-                                féculantArray.length > 0 && féculantArray.map((aliment) => (
+                                aliments.féculantArray.length > 0 && aliments.féculantArray.map((aliment) => (
                                     <AlimentsCards key={aliment.id} aliment={aliment} />
                                 ))
                             }
                         </div>
                         <div className={`
-                            ${style.alimentContainerByCategory} ${style.color2} ${laitageArray.length <= 0 ? style.disabled : ""}`}>
+                            ${style.alimentContainerByCategory} ${style.color2} ${aliments.laitageArray.length <= 0 ? style.disabled : ""}`}>
                             <h5>Laitage</h5>
                             {
-                                laitageArray.length > 0 && laitageArray.map((aliment) => (
+                                aliments.laitageArray.length > 0 && aliments.laitageArray.map((aliment) => (
                                     <AlimentsCards key={aliment.id} aliment={aliment} />
                                 ))
                             }
                         </div>
                         <div className={`
-                            ${style.alimentContainerByCategory} ${style.color2} ${huileArray.length <= 0 ? style.disabled : ""}`}>
+                            ${style.alimentContainerByCategory} ${style.color2} ${aliments.huileArray.length <= 0 ? style.disabled : ""}`}>
                             <h5>Huile</h5>
                             {
-                                huileArray.length > 0 && huileArray.map((aliment) => (
+                                aliments.huileArray.length > 0 && aliments.huileArray.map((aliment) => (
                                     <AlimentsCards key={aliment.id} aliment={aliment} />
                                 ))
                             }
                         </div>
                         <div className={`
-                            ${style.alimentContainerByCategory} ${style.color1} ${légumeArray.length <= 0 ? style.disabled : ""}`}>
+                            ${style.alimentContainerByCategory} ${style.color1} ${aliments.légumeArray.length <= 0 ? style.disabled : ""}`}>
                             <h5>Légume</h5>
                             {
-                                légumeArray.length > 0 && légumeArray.map((aliment) => (
+                                aliments.légumeArray.length > 0 && aliments.légumeArray.map((aliment) => (
                                     <AlimentsCards key={aliment.id} aliment={aliment} />
                                 ))
                             }
                         </div>
                         <div className={`
-                            ${style.alimentContainerByCategory} ${style.color2} ${biscuitArray.length <= 0 ? style.disabled : ""}`}>
+                            ${style.alimentContainerByCategory} ${style.color2} ${aliments.biscuitArray.length <= 0 ? style.disabled : ""}`}>
                             <h5>Biscuit</h5>
                             {
-                                biscuitArray.length > 0 && biscuitArray.map((aliment) => (
+                                aliments.biscuitArray.length > 0 && aliments.biscuitArray.map((aliment) => (
                                     <AlimentsCards key={aliment.id} aliment={aliment} />
                                 ))
 
                             }
                         </div>
                         <div className={`
-                            ${style.alimentContainerByCategory} ${style.color1} ${dessertArray.length <= 0 ? style.disabled : ""}`}>
+                            ${style.alimentContainerByCategory} ${style.color1} ${aliments.dessertArray.length <= 0 ? style.disabled : ""}`}>
                             <h5>Dessert</h5>
                             {
-                                dessertArray.length > 0 && dessertArray.map((aliment) => (
+                                aliments.dessertArray.length > 0 && aliments.dessertArray.map((aliment) => (
                                     <AlimentsCards key={aliment.id} aliment={aliment} />
                                 ))
                             }
