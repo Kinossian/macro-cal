@@ -27,9 +27,19 @@ export function useAlimentFilter() {
             return aliment.category === "huile"; // Recupere les aliment qui on la category huile
         });
     }, [alimentsArray]);
+    const sauceArray = useMemo(() => {
+        return alimentsArray.filter((aliment) => {
+            return aliment.category === "sauce"; // Recupere les aliment qui on la category huile
+        });
+    }, [alimentsArray]);
     const légumeArray = useMemo(() => {
         return alimentsArray.filter((aliment) => {
             return aliment.category === "légume"; // Recupere les aliment qui on la category legume
+        });
+    }, [alimentsArray]);
+    const fruitArray = useMemo(() => {
+        return alimentsArray.filter((aliment) => {
+            return aliment.category === "fruit"; // Recupere les aliment qui on la category fruit
         });
     }, [alimentsArray]);
     const biscuitArray = useMemo(() => {
@@ -48,7 +58,9 @@ export function useAlimentFilter() {
         féculantArray,
         laitageArray,
         huileArray,
+        sauceArray,
         légumeArray,
+        fruitArray,
         biscuitArray,
         dessertArray
     };
