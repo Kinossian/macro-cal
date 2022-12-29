@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Glycemic-app",
+  "name": "Glycemic-app",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "fullscreen",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#b17474",
+  "background_color": "#1d2637"
 }
