@@ -1,36 +1,15 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import style from './style.module.css';
 import RepaCard from '../alimentmacrocard/cardcontainer';
 import ListAddContainer from "../listaddcontainer";
-import { useRepas, useUser } from '../../utils/hooks/custom';
+import { useRepasFilter } from '../../utils/hooks/useRepasFilter';
+
 
 const RepasContainer = () => {
     const [isAjouter, setIsAjouter] = useState(false);
     const [target, setTarget] = useState("");
     const today = new Date().toISOString().split("T")[0];
-
-    const user = useUser();
-    const list = useRepas();
-    const alimentsArray = useMemo(() => {
-        return list.filter((aliment) => aliment.user === user.email);
-    }, [list, user]);
-
-    const repaByDate = useMemo(() => {
-        return alimentsArray.filter((repas) => repas.date === today);
-    }, [alimentsArray, today]);
-
-    const petitDèj = useMemo(() => {
-        return repaByDate.filter((repas) => repas.quelRepas === "Petit Dèj");
-    }, [repaByDate]);
-    const déjeuner = useMemo(() => {
-        return repaByDate.filter((repas) => repas.quelRepas === "Déjeuner");
-    }, [repaByDate]);
-    const extra = useMemo(() => {
-        return repaByDate.filter((repas) => repas.quelRepas === "Extra");
-    }, [repaByDate]);
-    const diner = useMemo(() => {
-        return repaByDate.filter((repas) => repas.quelRepas === "Diner");
-    }, [repaByDate]);
+    const repas = useRepasFilter(today);
 
     const handleClick = useCallback((e) => {
         setTarget(e.target.innerText);
@@ -52,22 +31,22 @@ const RepasContainer = () => {
                 <RepaCard
                     onClick={handleClick}
                     title="Petit Dèj"
-                    repa={petitDèj}
+                    repa={repas.petitDèj}
                 />
                 <RepaCard
                     onClick={handleClick}
                     title="Déjeuner"
-                    repa={déjeuner}
+                    repa={repas.déjeuner}
                 />
                 <RepaCard
                     onClick={handleClick}
                     title="Extra"
-                    repa={extra}
+                    repa={repas.extra}
                 />
                 <RepaCard
                     onClick={handleClick}
                     title="Diner"
-                    repa={diner}
+                    repa={repas.diner}
                 />
             </ul>
 
