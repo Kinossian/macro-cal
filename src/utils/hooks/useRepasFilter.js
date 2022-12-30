@@ -2,21 +2,18 @@ import { useMemo } from "react";
 import { useRepas, useUser } from "./custom";
 
 export function useRepasFilter(date) {
-
-
-    const list = useRepas();
     const user = useUser();
+    const list = useRepas();
     const alimentsArray = useMemo(() => {
         return list.filter((aliment) => aliment.user === user.email);
     }, [list, user]);
-
     const repaByDate = useMemo(() => {
         return alimentsArray.filter((repas) => repas.date === date);
     }, [alimentsArray, date]);
-
     const petitDèj = useMemo(() => {
         return repaByDate.filter((repas) => repas.quelRepas === "Petit Dèj");
     }, [repaByDate]);
+
     const déjeuner = useMemo(() => {
         return repaByDate.filter((repas) => repas.quelRepas === "Déjeuner");
     }, [repaByDate]);

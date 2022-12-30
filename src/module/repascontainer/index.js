@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import style from './style.module.css';
 import RepaCard from '../alimentmacrocard/cardcontainer';
-import ListAddContainer from "../listaddcontainer";
+import ListAddContainer from "../listsearch/listcontainer";
 import { useRepasFilter } from '../../utils/hooks/useRepasFilter';
 
 
@@ -22,7 +22,7 @@ const RepasContainer = () => {
                 <ul className={`${style.ajouterList} ${isAjouter ? style.open : ""}`}>
                     <>
                         <h5 onClick={() => setIsAjouter(false)}>{target}</h5>
-                        <p>Ajouter un aliment a ton repa</p>
+                        <p>Selectione un aliment pour ton repa:</p>
                         <ListAddContainer target={target} />
                     </>
                 </ul>

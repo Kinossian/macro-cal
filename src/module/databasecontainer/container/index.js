@@ -48,10 +48,28 @@ const DataBaseAlimentContainer = () => {
                             }
                         </div>
                         <div className={`
+                            ${style.alimentContainerByCategory} ${style.color2} ${aliments.sauceArray.length <= 0 ? style.disabled : ""}`}>
+                            <h5>Sauce</h5>
+                            {
+                                aliments.sauceArray.length > 0 && aliments.sauceArray.map((aliment) => (
+                                    <AlimentsCards key={aliment.id} aliment={aliment} />
+                                ))
+                            }
+                        </div>
+                        <div className={`
                             ${style.alimentContainerByCategory} ${style.color1} ${aliments.légumeArray.length <= 0 ? style.disabled : ""}`}>
                             <h5>Légume</h5>
                             {
                                 aliments.légumeArray.length > 0 && aliments.légumeArray.map((aliment) => (
+                                    <AlimentsCards key={aliment.id} aliment={aliment} />
+                                ))
+                            }
+                        </div>
+                        <div className={`
+                            ${style.alimentContainerByCategory} ${style.color1} ${aliments.fruitArray.length <= 0 ? style.disabled : ""}`}>
+                            <h5>Fruit</h5>
+                            {
+                                aliments.fruitArray.length > 0 && aliments.fruitArray.map((aliment) => (
                                     <AlimentsCards key={aliment.id} aliment={aliment} />
                                 ))
                             }
