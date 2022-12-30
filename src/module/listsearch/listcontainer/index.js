@@ -80,6 +80,11 @@ const ListAddContainer = ({ target }) => {
                             onClick={handleAdd}
                         />
                         <ListCard
+                            title="FRUIT"
+                            aliments={aliments.fruitArray}
+                            onClick={handleAdd}
+                        />
+                        <ListCard
                             title="DESSERT"
                             aliments={aliments.dessertArray}
                             onClick={handleAdd}
