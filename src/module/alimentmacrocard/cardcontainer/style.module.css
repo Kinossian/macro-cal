@@ -8,15 +8,16 @@
     text-align: start;
     padding: 20px;
     border-radius: 5px;
+    box-shadow: 0 0 20px -10px black;
 }
 .repaCard > h3 {
     cursor: pointer;
     font-size: 2rem;
-    border-bottom: 1px solid var(--fx-1);
+    border-bottom: 1px solid var(--background-1);
     border-top-left-radius: 10px;
 }
 .repaCard > h3:hover {
-    background: var(--fx-1);
+    background: var(--background-1);
 }
 .aucunPlat {
     text-align: center;
