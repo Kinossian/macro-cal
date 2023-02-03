@@ -5,13 +5,13 @@
     place-items: end;
     align-items: center;
     font-size: 2rem;
-    background-color: var(--background-3);
+    background-color: var(--background-2);
     color: var(--text-1);
     padding: 5px 0;
     margin-bottom: 15px;
     width: 100%;
     height: 70px;
-    box-shadow: 0 0 10px #f1f1fa5e;
+    box-shadow: 0 0 10px #1616165e;
     z-index: 90;
 }
 .header > a {
@@ -51,7 +51,6 @@
     top: -1000%;
     background-color: var(--background-2);
     padding: 100px 30px 30px;
-    box-shadow: 0 0 10px #2e2e2e;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
@@ -64,21 +63,23 @@
     display: block;
     text-align: center;
     font-size: 3rem;
-    color: var(--background-1);
-    text-shadow: 0 0 30px white;
+    color: var(--text-1);
+    /* text-shadow: 0 0 30px white; */
     user-select: none;
 }
 .nav a {
-    background: var(--background-3);
+    background: var(--background-2);
+    transition: 200ms;
     box-shadow: 0 0 1px var(--text-1);
     padding: 10px 10px;
     width: 100%;
     text-align: center;
     border-radius: 8px;
+    border-bottom: 3px solid rgba(255, 255, 0, 0);
 }
 .nav a:hover {
     border-bottom: 3px solid var(--fx-1);
-    box-shadow: 0 0 10px var(--fx-1);
+    box-shadow: 0 0 40px -15px var(--fx-1);
     border-radius: 8px;
 }
 .nav a:active {
@@ -88,8 +89,8 @@
 }
 .nav :last-child {
     width: 100%;
-    background: var(--background-3);
-    box-shadow: 0 0 10px var(--text-1);
+    /* background: var(--background-3); */
+    /* box-shadow: 0 0 10px var(--text-1); */
 }
 .linkActive {
     border-bottom: 3px solid var(--fx-1);
