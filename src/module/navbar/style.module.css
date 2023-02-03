@@ -93,7 +93,9 @@
     /* box-shadow: 0 0 10px var(--text-1); */
 }
 .linkActive {
-    border-bottom: 3px solid var(--fx-1);
+    border-bottom: 3px solid var(--fx-1) !important;
+    color: var(--fx-1);
+    position: relative;
 }
 
 @media (min-width: 770px) {
